@@ -4,105 +4,105 @@ import { useEffect, useRef, useState } from "react";
 function App() {
   // Sample chord data
   const chordData = [
-    { id: 496, key: 'C', name: 'C5', notes: 'C,G', imageUrl: null },
-    { id: 497, key: 'C', name: 'CM7#5sus4', notes: 'C,F,G#,B', imageUrl: null },
-    { id: 498, key: 'C', name: 'C7#5sus4', notes: 'C,F,G#,Bb', imageUrl: null },
-    { id: 499, key: 'C', name: 'Csus4', notes: 'C,F,G', imageUrl: null },
-    { id: 500, key: 'C', name: 'CM7sus4', notes: 'C,F,G,B', imageUrl: null },
-    { id: 501, key: 'C', name: 'C7sus4', notes: 'C,F,G,Bb', imageUrl: null },
-    { id: 502, key: 'C', name: 'C7no5', notes: 'C,E,Bb', imageUrl: null },
-    { id: 503, key: 'C', name: 'Caug', notes: 'C,E,G#', imageUrl: null },
-    { id: 504, key: 'C', name: 'CM7b6', notes: 'C,E,Ab,B', imageUrl: null },
-    { id: 505, key: 'C', name: 'Cmaj7#5', notes: 'C,E,G#,B', imageUrl: null },
-    { id: 506, key: 'C', name: 'C7#5', notes: 'C,E,G#,Bb', imageUrl: null },
-    { id: 507, key: 'C', name: 'C7b13', notes: 'C,E,Bb,Ab', imageUrl: null },
-    { id: 508, key: 'C', name: 'CM', notes: 'C,E,G', imageUrl: null },
-    { id: 509, key: 'C', name: 'Cmaj7', notes: 'C,E,G,B', imageUrl: null },
-    { id: 510, key: 'C', name: 'C7', notes: 'C,E,G,Bb', imageUrl: null },
-    { id: 511, key: 'C', name: 'C6', notes: 'C,E,G,A', imageUrl: null },
-    { id: 512, key: 'C', name: 'C7add6', notes: 'C,E,G,Bb,A', imageUrl: null },
-    { id: 513, key: 'C', name: 'C7b6', notes: 'C,E,G,Ab,Bb', imageUrl: null },
-    { id: 514, key: 'C', name: 'CMb5', notes: 'C,E,Gb', imageUrl: null },
-    { id: 515, key: 'C', name: 'CM7b5', notes: 'C,E,Gb,B', imageUrl: null },
-    { id: 516, key: 'C', name: 'C7b5', notes: 'C,E,Gb,Bb', imageUrl: null },
-    { id: 517, key: 'C', name: 'Cmaj#4', notes: 'C,E,G,B,F#', imageUrl: null },
-    { id: 518, key: 'C', name: 'C7#11', notes: 'C,E,G,Bb,F#', imageUrl: null },
-    { id: 519, key: 'C', name: 'CM6#11', notes: 'C,E,G,A,F#', imageUrl: null },
-    { id: 520, key: 'C', name: 'C7#11b13', notes: 'C,E,G,Bb,F#,Ab', imageUrl: null },
-    { id: 521, key: 'C', name: 'Cm#5', notes: 'C,Eb,G#', imageUrl: null },
-    { id: 522, key: 'C', name: 'Cmb6M7', notes: 'C,Eb,Ab,B', imageUrl: null },
-    { id: 523, key: 'C', name: 'Cm7#5', notes: 'C,Eb,Ab,Bb', imageUrl: null },
-    { id: 524, key: 'C', name: 'Cm', notes: 'C,Eb,G', imageUrl: null },
-    { id: 525, key: 'C', name: 'Cm/ma7', notes: 'C,Eb,G,B', imageUrl: null },
-    { id: 526, key: 'C', name: 'Cm7', notes: 'C,Eb,G,Bb', imageUrl: null },
-    { id: 527, key: 'C', name: 'Cm6', notes: 'C,Eb,G,A', imageUrl: null },
-    { id: 528, key: 'C', name: 'CmMaj7b6', notes: 'C,Eb,G,Ab,B', imageUrl: null },
-    { id: 529, key: 'C', name: 'Cdim', notes: 'C,Eb,Gb', imageUrl: null },
-    { id: 530, key: 'C', name: 'CoM7', notes: 'C,Eb,Gb,B', imageUrl: null },
-    { id: 531, key: 'C', name: 'Cm7b5', notes: 'C,Eb,Gb,Bb', imageUrl: null },
-    { id: 532, key: 'C', name: 'Cdim7', notes: 'C,Eb,Gb,Bbb', imageUrl: null },
-    { id: 533, key: 'C', name: 'Co7M7', notes: 'C,Eb,Gb,A,B', imageUrl: null },
-    { id: 534, key: 'C', name: 'C4', notes: 'C,F,Bb,Eb', imageUrl: null },
-    { id: 535, key: 'C', name: 'Cmadd4', notes: 'C,Eb,F,G', imageUrl: null },
-    { id: 536, key: 'C', name: 'Cm7add11', notes: 'C,Eb,G,Bb,F', imageUrl: null },
-    { id: 537, key: 'C', name: 'C+add#9', notes: 'C,E,G#,D#', imageUrl: null },
-    { id: 538, key: 'C', name: 'C7#5#9', notes: 'C,E,G#,Bb,D#', imageUrl: null },
-    { id: 539, key: 'C', name: 'C7#9', notes: 'C,E,G,Bb,D#', imageUrl: null },
-    { id: 540, key: 'C', name: 'C13#9', notes: 'C,E,G,Bb,D#,A', imageUrl: null },
-    { id: 541, key: 'C', name: 'C7#9b13', notes: 'C,E,G,Bb,D#,Ab', imageUrl: null },
-    { id: 542, key: 'C', name: 'Cmaj7#9#11', notes: 'C,E,G,B,D#,F#', imageUrl: null },
-    { id: 543, key: 'C', name: 'C7#9#11', notes: 'C,E,G,Bb,D#,F#', imageUrl: null },
-    { id: 544, key: 'C', name: 'C13#9#11', notes: 'C,E,G,Bb,D#,F#,A', imageUrl: null },
-    { id: 545, key: 'C', name: 'C7#9#11b13', notes: 'C,E,G,Bb,D#,F#,Ab', imageUrl: null },
-    { id: 546, key: 'C', name: 'Csus2', notes: 'C,D,G', imageUrl: null },
-    { id: 547, key: 'C', name: 'CM9#5sus4', notes: 'C,F,G#,B,D', imageUrl: null },
-    { id: 548, key: 'C', name: 'Csus24', notes: 'C,D,F,G', imageUrl: null },
-    { id: 549, key: 'C', name: 'CM9sus4', notes: 'C,F,G,B,D', imageUrl: null },
-    { id: 550, key: 'C', name: 'C11', notes: 'C,G,Bb,D,F', imageUrl: null },
-    { id: 551, key: 'Cb', name: 'Cb9sus', notes: 'C,F,G,Bb,D', imageUrl: null },
-    { id: 552, key: 'C', name: 'C13sus4', notes: 'C,F,G,Bb,D,A', imageUrl: null },
-    { id: 553, key: 'C', name: 'C9no5', notes: 'C,E,Bb,D', imageUrl: null },
-    { id: 554, key: 'C', name: 'C13no5', notes: 'C,E,Bb,D,A', imageUrl: null },
-    { id: 555, key: 'C', name: 'CM#5add9', notes: 'C,E,G#,D', imageUrl: null },
-    { id: 556, key: 'C', name: 'Cmaj9#5', notes: 'C,E,G#,B,D', imageUrl: null },
-    { id: 557, key: 'C', name: 'C9#5', notes: 'C,E,G#,Bb,D', imageUrl: null },
-    { id: 558, key: 'C', name: 'C9b13', notes: 'C,E,Bb,D,Ab', imageUrl: null },
-    { id: 559, key: 'C', name: 'CMadd9', notes: 'C,E,G,D', imageUrl: null },
-    { id: 560, key: 'C', name: 'Cmaj9', notes: 'C,E,G,B,D', imageUrl: null },
-    { id: 561, key: 'C', name: 'C9', notes: 'C,E,G,Bb,D', imageUrl: null },
-    { id: 562, key: 'C', name: 'C6add9', notes: 'C,E,G,A,D', imageUrl: null },
-    { id: 563, key: 'C', name: 'Cmaj13', notes: 'C,E,G,B,D,A', imageUrl: null },
-    { id: 564, key: 'C', name: 'CM7add13', notes: 'C,E,G,A,B,D', imageUrl: null },
-    { id: 565, key: 'C', name: 'C13', notes: 'C,E,G,Bb,D,A', imageUrl: null },
-    { id: 566, key: 'C', name: 'CM9b5', notes: 'C,E,Gb,B,D', imageUrl: null },
-    { id: 567, key: 'C', name: 'C9b5', notes: 'C,E,Gb,Bb,D', imageUrl: null },
-    { id: 568, key: 'C', name: 'C13b5', notes: 'C,E,Gb,A,Bb,D', imageUrl: null },
-    { id: 569, key: 'C', name: 'C9#5#11', notes: 'C,E,G#,Bb,D,F#', imageUrl: null },
-    { id: 570, key: 'C', name: 'Cmaj9#11', notes: 'C,E,G,B,D,F#', imageUrl: null },
-    { id: 571, key: 'C', name: 'C9#11', notes: 'C,E,G,Bb,D,F#', imageUrl: null },
-    { id: 572, key: 'C', name: 'C69#11', notes: 'C,E,G,A,D,F#', imageUrl: null },
-    { id: 573, key: 'C', name: 'CM13#11', notes: 'C,E,G,B,D,F#,A', imageUrl: null },
-    { id: 574, key: 'C', name: 'C13#11', notes: 'C,E,G,Bb,D,F#,A', imageUrl: null },
-    { id: 575, key: 'C', name: 'C9#11b13', notes: 'C,E,G,Bb,D,F#,Ab', imageUrl: null },
-    { id: 576, key: 'C', name: 'Cm9#5', notes: 'C,Eb,Ab,Bb,D', imageUrl: null },
-    { id: 577, key: 'C', name: 'Cmadd9', notes: 'C,Eb,G,D', imageUrl: null },
-    { id: 578, key: 'C', name: 'CmM9', notes: 'C,Eb,G,B,D', imageUrl: null },
-    { id: 579, key: 'C', name: 'Cm9', notes: 'C,Eb,G,Bb,D', imageUrl: null },
-    { id: 580, key: 'C', name: 'Cm69', notes: 'C,Eb,G,A,D', imageUrl: null },
-    { id: 581, key: 'C', name: 'Cm13', notes: 'C,Eb,G,Bb,D,A', imageUrl: null },
-    { id: 582, key: 'C', name: 'CmMaj9b6', notes: 'C,Eb,G,Ab,B,D', imageUrl: null },
-    { id: 583, key: 'C', name: 'Cm9b5', notes: 'C,D,Eb,Gb,Bb', imageUrl: null },
-    { id: 584, key: 'C', name: 'Cm11A', notes: 'C,Eb,G#,Bb,D,F', imageUrl: null },
-    { id: 585, key: 'C', name: 'Cm11', notes: 'C,Eb,G,Bb,D,F', imageUrl: null },
-    { id: 586, key: 'C', name: 'C11b9', notes: 'C,G,Bb,Db,F', imageUrl: null },
-    { id: 587, key: 'C', name: 'C7sus4b9b13', notes: 'C,F,G,Bb,Db,Ab', imageUrl: null },
-    { id: 588, key: 'C', name: 'Calt7', notes: 'C,E,Bb,Db', imageUrl: null },
-    { id: 589, key: 'C', name: 'C7#5b9', notes: 'C,E,G#,Bb,Db', imageUrl: null },
-    { id: 590, key: 'C', name: 'CMaddb9', notes: 'C,E,G,Db', imageUrl: null },
-    { id: 591, key: 'C', name: 'CM7b9', notes: 'C,E,G,B,Db', imageUrl: null },
-    { id: 592, key: 'C', name: 'C7b9', notes: 'C,E,G,Bb,Db', imageUrl: null },
-    { id: 593, key: 'C', name: 'C13b9', notes: 'C,E,G,Bb,Db,A', imageUrl: null },
-    { id: 594, key: 'C', name: 'C7b9b13', notes: 'C,E,G,Bb,Db,Ab', imageUrl: null },
+    { id: 1, key: 'A', name: 'A5', notes: 'A,E', imageUrl: null },
+    { id: 2, key: 'A', name: 'AM7#5sus4', notes: 'A,D,E#,G#', imageUrl: null },
+    { id: 3, key: 'A', name: 'A7#5sus4', notes: 'A,D,E#,G', imageUrl: null },
+    { id: 4, key: 'A', name: 'Asus4', notes: 'A,D,E', imageUrl: null },
+    { id: 5, key: 'A', name: 'AM7sus4', notes: 'A,D,E,G#', imageUrl: null },
+    { id: 6, key: 'A', name: 'A7sus4', notes: 'A,D,E,G', imageUrl: null },
+    { id: 7, key: 'A', name: 'A7no5', notes: 'A,C#,G', imageUrl: null },
+    { id: 8, key: 'A', name: 'Aaug', notes: 'A,C#,E#', imageUrl: null },
+    { id: 9, key: 'A', name: 'AM7b6', notes: 'A,C#,F,G#', imageUrl: null },
+    { id: 10, key: 'A', name: 'Amaj7#5', notes: 'A,C#,E#,G#', imageUrl: null },
+    { id: 11, key: 'A', name: 'A7#5', notes: 'A,C#,E#,G', imageUrl: null },
+    { id: 12, key: 'A', name: 'A7b13', notes: 'A,C#,G,F', imageUrl: null },
+    { id: 13, key: 'A', name: 'AM', notes: 'A,C#,E', imageUrl: null },
+    { id: 14, key: 'A', name: 'Amaj7', notes: 'A,C#,E,G#', imageUrl: null },
+    { id: 15, key: 'A', name: 'A7', notes: 'A,C#,E,G', imageUrl: null },
+    { id: 16, key: 'A', name: 'A6', notes: 'A,C#,E,F#', imageUrl: null },
+    { id: 17, key: 'A', name: 'A7add6', notes: 'A,C#,E,G,F#', imageUrl: null },
+    { id: 18, key: 'A', name: 'A7b6', notes: 'A,C#,E,F,G', imageUrl: null },
+    { id: 19, key: 'A', name: 'AMb5', notes: 'A,C#,Eb', imageUrl: null },
+    { id: 20, key: 'A', name: 'AM7b5', notes: 'A,C#,Eb,G#', imageUrl: null },
+    { id: 21, key: 'A', name: 'A7b5', notes: 'A,C#,Eb,G', imageUrl: null },
+    { id: 22, key: 'A', name: 'Amaj#4', notes: 'A,C#,E,G#,D#', imageUrl: null },
+    { id: 23, key: 'A', name: 'A7#11', notes: 'A,C#,E,G,D#', imageUrl: null },
+    { id: 24, key: 'A', name: 'AM6#11', notes: 'A,C#,E,F#,D#', imageUrl: null },
+    { id: 25, key: 'A', name: 'A7#11b13', notes: 'A,C#,E,G,D#,F', imageUrl: null },
+    { id: 26, key: 'A', name: 'Am#5', notes: 'A,C,E#', imageUrl: null },
+    { id: 27, key: 'A', name: 'Amb6M7', notes: 'A,C,F,G#', imageUrl: null },
+    { id: 28, key: 'A', name: 'Am7#5', notes: 'A,C,F,G', imageUrl: null },
+    { id: 29, key: 'A', name: 'Am', notes: 'A,C,E', imageUrl: null },
+    { id: 30, key: 'A', name: 'Am/ma7', notes: 'A,C,E,G#', imageUrl: null },
+    { id: 31, key: 'A', name: 'Am7', notes: 'A,C,E,G', imageUrl: null },
+    { id: 32, key: 'A', name: 'Am6', notes: 'A,C,E,F#', imageUrl: null },
+    { id: 33, key: 'A', name: 'AmMaj7b6', notes: 'A,C,E,F,G#', imageUrl: null },
+    { id: 34, key: 'A', name: 'Adim', notes: 'A,C,Eb', imageUrl: null },
+    { id: 35, key: 'A', name: 'AoM7', notes: 'A,C,Eb,G#', imageUrl: null },
+    { id: 36, key: 'A', name: 'Am7b5', notes: 'A,C,Eb,G', imageUrl: null },
+    { id: 37, key: 'A', name: 'Adim7', notes: 'A,C,Eb,Gb', imageUrl: null },
+    { id: 38, key: 'A', name: 'Ao7M7', notes: 'A,C,Eb,F#,G#', imageUrl: null },
+    { id: 39, key: 'A', name: 'A4', notes: 'A,D,G,C', imageUrl: null },
+    { id: 40, key: 'A', name: 'Amadd4', notes: 'A,C,D,E', imageUrl: null },
+    { id: 41, key: 'A', name: 'Am7add11', notes: 'A,C,E,G,D', imageUrl: null },
+    { id: 42, key: 'A', name: 'A+add#9', notes: 'A,C#,E#,B#', imageUrl: null },
+    { id: 43, key: 'A', name: 'A7#5#9', notes: 'A,C#,E#,G,B#', imageUrl: null },
+    { id: 44, key: 'A', name: 'A7#9', notes: 'A,C#,E,G,B#', imageUrl: null },
+    { id: 45, key: 'A', name: 'A13#9', notes: 'A,C#,E,G,B#,F#', imageUrl: null },
+    { id: 46, key: 'A', name: 'A7#9b13', notes: 'A,C#,E,G,B#,F', imageUrl: null },
+    { id: 47, key: 'A', name: 'Amaj7#9#11', notes: 'A,C#,E,G#,B#,D#', imageUrl: null },
+    { id: 48, key: 'A', name: 'A7#9#11', notes: 'A,C#,E,G,B#,D#', imageUrl: null },
+    { id: 49, key: 'A', name: 'A13#9#11', notes: 'A,C#,E,G,B#,D#,F#', imageUrl: null },
+    { id: 50, key: 'A', name: 'A7#9#11b13', notes: 'A,C#,E,G,B#,D#,F', imageUrl: null },
+    { id: 51, key: 'A', name: 'Asus2', notes: 'A,B,E', imageUrl: null },
+    { id: 52, key: 'A', name: 'AM9#5sus4', notes: 'A,D,E#,G#,B', imageUrl: null },
+    { id: 53, key: 'A', name: 'Asus24', notes: 'A,B,D,E', imageUrl: null },
+    { id: 54, key: 'A', name: 'AM9sus4', notes: 'A,D,E,G#,B', imageUrl: null },
+    { id: 55, key: 'A', name: 'A11', notes: 'A,E,G,B,D', imageUrl: null },
+    { id: 56, key: 'Ab', name: 'Ab9sus', notes: 'A,D,E,G,B', imageUrl: null },
+    { id: 57, key: 'A', name: 'A13sus4', notes: 'A,D,E,G,B,F#', imageUrl: null },
+    { id: 58, key: 'A', name: 'A9no5', notes: 'A,C#,G,B', imageUrl: null },
+    { id: 59, key: 'A', name: 'A13no5', notes: 'A,C#,G,B,F#', imageUrl: null },
+    { id: 60, key: 'A', name: 'AM#5add9', notes: 'A,C#,E#,B', imageUrl: null },
+    { id: 61, key: 'A', name: 'Amaj9#5', notes: 'A,C#,E#,G#,B', imageUrl: null },
+    { id: 62, key: 'A', name: 'A9#5', notes: 'A,C#,E#,G,B', imageUrl: null },
+    { id: 63, key: 'A', name: 'A9b13', notes: 'A,C#,G,B,F', imageUrl: null },
+    { id: 64, key: 'A', name: 'AMadd9', notes: 'A,C#,E,B', imageUrl: null },
+    { id: 65, key: 'A', name: 'Amaj9', notes: 'A,C#,E,G#,B', imageUrl: null },
+    { id: 66, key: 'A', name: 'A9', notes: 'A,C#,E,G,B', imageUrl: null },
+    { id: 67, key: 'A', name: 'A6add9', notes: 'A,C#,E,F#,B', imageUrl: null },
+    { id: 68, key: 'A', name: 'Amaj13', notes: 'A,C#,E,G#,B,F#', imageUrl: null },
+    { id: 69, key: 'A', name: 'AM7add13', notes: 'A,C#,E,F#,G#,B', imageUrl: null },
+    { id: 70, key: 'A', name: 'A13', notes: 'A,C#,E,G,B,F#', imageUrl: null },
+    { id: 71, key: 'A', name: 'AM9b5', notes: 'A,C#,Eb,G#,B', imageUrl: null },
+    { id: 72, key: 'A', name: 'A9b5', notes: 'A,C#,Eb,G,B', imageUrl: null },
+    { id: 73, key: 'A', name: 'A13b5', notes: 'A,C#,Eb,F#,G,B', imageUrl: null },
+    { id: 74, key: 'A', name: 'A9#5#11', notes: 'A,C#,E#,G,B,D#', imageUrl: null },
+    { id: 75, key: 'A', name: 'Amaj9#11', notes: 'A,C#,E,G#,B,D#', imageUrl: null },
+    { id: 76, key: 'A', name: 'A9#11', notes: 'A,C#,E,G,B,D#', imageUrl: null },
+    { id: 77, key: 'A', name: 'A69#11', notes: 'A,C#,E,F#,B,D#', imageUrl: null },
+    { id: 78, key: 'A', name: 'AM13#11', notes: 'A,C#,E,G#,B,D#,F#', imageUrl: null },
+    { id: 79, key: 'A', name: 'A13#11', notes: 'A,C#,E,G,B,D#,F#', imageUrl: null },
+    { id: 80, key: 'A', name: 'A9#11b13', notes: 'A,C#,E,G,B,D#,F', imageUrl: null },
+    { id: 81, key: 'A', name: 'Am9#5', notes: 'A,C,F,G,B', imageUrl: null },
+    { id: 82, key: 'A', name: 'Amadd9', notes: 'A,C,E,B', imageUrl: null },
+    { id: 83, key: 'A', name: 'AmM9', notes: 'A,C,E,G#,B', imageUrl: null },
+    { id: 84, key: 'A', name: 'Am9', notes: 'A,C,E,G,B', imageUrl: null },
+    { id: 85, key: 'A', name: 'Am69', notes: 'A,C,E,F#,B', imageUrl: null },
+    { id: 86, key: 'A', name: 'Am13', notes: 'A,C,E,G,B,F#', imageUrl: null },
+    { id: 87, key: 'A', name: 'AmMaj9b6', notes: 'A,C,E,F,G#,B', imageUrl: null },
+    { id: 88, key: 'A', name: 'Am9b5', notes: 'A,B,C,Eb,G', imageUrl: null },
+    { id: 89, key: 'A', name: 'Am11A', notes: 'A,C,E#,G,B,D', imageUrl: null },
+    { id: 90, key: 'A', name: 'Am11', notes: 'A,C,E,G,B,D', imageUrl: null },
+    { id: 91, key: 'A', name: 'A11b9', notes: 'A,E,G,Bb,D', imageUrl: null },
+    { id: 92, key: 'A', name: 'A7sus4b9b13', notes: 'A,D,E,G,Bb,F', imageUrl: null },
+    { id: 93, key: 'A', name: 'Aalt7', notes: 'A,C#,G,Bb', imageUrl: null },
+    { id: 94, key: 'A', name: 'A7#5b9', notes: 'A,C#,E#,G,Bb', imageUrl: null },
+    { id: 95, key: 'A', name: 'AMaddb9', notes: 'A,C#,E,Bb', imageUrl: null },
+    { id: 96, key: 'A', name: 'AM7b9', notes: 'A,C#,E,G#,Bb', imageUrl: null },
+    { id: 97, key: 'A', name: 'A7b9', notes: 'A,C#,E,G,Bb', imageUrl: null },
+    { id: 98, key: 'A', name: 'A13b9', notes: 'A,C#,E,G,Bb,F#', imageUrl: null },
+    { id: 99, key: 'A', name: 'A7b9b13', notes: 'A,C#,E,G,Bb,F', imageUrl: null },
   ];
 
   const pianoContainerRef = useRef(null);
@@ -141,7 +141,11 @@ function App() {
     const notes = chord.notes.split(",");
     const name = chord.name;
     const id = chord.id;
-
+/*
+    // Explicitly extract the root note
+    const rootNote = notes[0];
+    const remainingNotes = notes.slice(1);
+*/
     // Clear any existing content
     if (pianoContainerRef.current) {
       pianoContainerRef.current.innerHTML = '';
@@ -173,56 +177,90 @@ function App() {
     const loOctave = 3 //default 3
     const midOctave = 4 //default 4
     const hiOctave = 5 //default 5
-
     // Add a small delay to ensure piano is fully initialized and keys are pressed
     setTimeout(() => {
       // Press root note in octave 3
       console.log(`Pressing root key: ${rootNote}3`);
       piano.keyDown(`${rootNote}3`);
 
-      // Using your original conditional logic for key pressing
-      //default is > 6
-      if (notes.length > 6) {
-        // Press middle notes in octave 3
-        middleNotesExtend.forEach(note => {
-          console.log(`Pressing middle note Extended: ${note}3`);
-          piano.keyDown(`${note}${loOctave}`);
-        });
+      // For extended chords (with 9, 11, 13), use a special approach
+      if (/9|11|13/.test(chord.name)) {
+        // Identify chord components
+        const thirdAndFifth = []; // 3rd and 5th
+        const sevenths = []; // 7th
+        const extensions = []; // 9th, 11th, 13th
 
-        // Press high notes in octave 4
-        highNotesExtend.forEach(note => {
-          console.log(`Pressing high note Extended: ${note}4`);
-          piano.keyDown(`${note}${midOctave}`);
-        });
+        // Categorize remaining notes (simplified approach)
+        for (let i = 1; i < notes.length; i++) {
+          const note = notes[i];
+          if (i === 1 || i === 2) {
+            thirdAndFifth.push(note); // Likely 3rd or 5th
+          } else if (i === 3) {
+            sevenths.push(note); // Likely 7th
+          } else {
+            extensions.push(note); // Likely extensions
+          }
+        }
 
-        lastNote.forEach(note => {
-          piano.keyDown(`${note}${hiOctave}`)
-        });
-      } else if (notes.length > 4) {
-        // Press middle notes in octave 3
-        middleNotesExtend.forEach(note => {
-          console.log(`Pressing middle note Extended: ${note}3`);
-          piano.keyDown(`${note}${loOctave}`);
-        });
-
-
-
-        // Press high notes in octave 4
-        highNotesExtend.forEach(note => {
-          console.log(`Pressing high note Extended: ${note}4`);
+        // Play 3rd and 5th in octave 4
+        thirdAndFifth.forEach(note => {
+          console.log(`Pressing 3rd/5th: ${note}4`);
           piano.keyDown(`${note}4`);
+        });
+
+        // Play 7th in octave 4
+        sevenths.forEach(note => {
+          console.log(`Pressing 7th: ${note}4`);
+          piano.keyDown(`${note}4`);
+        });
+
+        // Play extensions in octave 5
+        extensions.forEach(note => {
+          console.log(`Pressing extension: ${note}5`);
+          piano.keyDown(`${note}5`);
         });
       } else {
-        // For shorter chords
-        middleNotesExtend.forEach(note => {
-          console.log(`Pressing middle note: ${note}4`); // Fixed to match actual octave used
-          piano.keyDown(`${note}4`);
-        });
+        // For non-extended chords, use the original approach
+        if (notes.length > 6) {
+          // Press middle notes in octave 3
+          middleNotesExtend.forEach(note => {
+            console.log(`Pressing middle note Extended: ${note}3`);
+            piano.keyDown(`${note}${loOctave}`);
+          });
 
-        highNotesExtend.forEach(note => {
-          console.log(`Pressing high note: ${note}4`);
-          piano.keyDown(`${note}4`);
-        });
+          // Press high notes in octave 4
+          highNotesExtend.forEach(note => {
+            console.log(`Pressing high note Extended: ${note}4`);
+            piano.keyDown(`${note}${midOctave}`);
+          });
+
+          lastNote.forEach(note => {
+            piano.keyDown(`${note}${hiOctave}`)
+          });
+        } else if (notes.length > 4) {
+          // Press middle notes in octave 3
+          middleNotesExtend.forEach(note => {
+            console.log(`Pressing middle note Extended: ${note}3`);
+            piano.keyDown(`${note}${loOctave}`);
+          });
+
+          // Press high notes in octave 4
+          highNotesExtend.forEach(note => {
+            console.log(`Pressing high note Extended: ${note}4`);
+            piano.keyDown(`${note}4`);
+          });
+        } else {
+          // For shorter chords
+          middleNotesExtend.forEach(note => {
+            console.log(`Pressing middle note: ${note}4`); // Fixed to match actual octave used
+            piano.keyDown(`${note}4`);
+          });
+
+          highNotesExtend.forEach(note => {
+            console.log(`Pressing high note: ${note}4`);
+            piano.keyDown(`${note}4`);
+          });
+        }
       }
 
       // After keys are pressed, rasterize the piano
