@@ -1711,7 +1711,12 @@ function App() {
     { id: 1702, key: 'Bb', name: 'Bbbaug', notes: 'A,Dd,Fb', imageUrl: null },
     { id: 1703, key: 'Cb', name: 'Cbb(m7b5)', notes: 'Db,E,G,B', imageUrl: null },
     { id: 1704, key: 'Ab', name: 'Abbm7', notes: 'G,Bb,D,F', imageUrl: null },
-
+    { id: 1705, key: 'Db', name: 'Dbb(7)', notes: 'C,E,G,Bb', imageUrl: null },
+    { id: 1706, key: 'Cb', name: 'Cbmaj', notes: 'B,Eb,Ab', imageUrl: null },
+    { id: 1707, key: 'Gb', name: 'Bbm(maj7)', notes: 'Gb,Bbb,Db,F', imageUrl: null },
+    { id: 1708, key: 'Eb', name: 'Ebbmaj', notes: 'D,Gb,A', imageUrl: null },
+    { id: 1709, key: 'Cb', name: 'Cbm', notes: 'B,D,Gb', imageUrl: null },
+    { id: 1710, key: 'Ab', name: 'Abbmaj7', notes: 'G,B,D,E', imageUrl: null },
 
 
   ];
